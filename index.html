@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Waste Management Awareness</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: #f0f4f8;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #2e8b57;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(46,139,87,0.3);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin-top: 0.5rem;
+      font-weight: 300;
+      font-size: 1.2rem;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      background: white;
+      margin-bottom: 2rem;
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    section h2 {
+      color: #2e8b57;
+      margin-top: 0;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    .btn {
+      display: inline-block;
+      background: #2e8b57;
+      color: white;
+      padding: 0.7rem 1.4rem;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      margin-top: 1rem;
+    }
+    .btn:hover {
+      background: #276b46;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+      background: #e6f2e6;
+    }
+    /* Interactive toggle styles */
+    .toggle-content {
+      display: none;
+      margin-top: 1rem;
+      background: #e9f5e9;
+      padding: 1rem;
+      border-left: 4px solid #2e8b57;
+      border-radius: 4px;
+    }
+    .toggle-btn {
+      cursor: pointer;
+      background: #d0e8d0;
+      border: none;
+      padding: 0.5rem 1rem;
+      color: #2e8b57;
+      border-radius: 20px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .toggle-btn:hover {
+      background: #b3d8b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Smart Waste Management Awareness</h1>
+    <p>Building a cleaner, greener future with technology</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>What is Smart Waste Management?</h2>
+      <p>Smart waste management uses technology like sensors, data analytics, and IoT devices to optimize the collection, processing, and disposal of waste.</p>
+      <button class="toggle-btn" onclick="toggleContent('more1')">Learn More</button>
+      <div class="toggle-content" id="more1">
+        <p>Traditional waste collection often leads to inefficiencies, overflow bins, and unnecessary trips by garbage trucks. Smart systems improve efficiency by monitoring waste levels in real-time and optimizing collection routes.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Benefits of Smart Waste Management</h2>
+      <ul>
+        <li>Reduces operational costs for cities and companies</li>
+        <li>Decreases environmental pollution</li>
+        <li>Improves recycling rates and resource recovery</li>
+        <li>Reduces carbon footprint by optimizing waste truck routes</li>
+        <li>Enhances cleanliness and quality of life in urban areas</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>How It Works</h2>
+      <p>Smart waste bins are equipped with sensors that measure the fill level of the bin. This data is sent to a central system that analyzes it and plans efficient collection schedules.</p>
+      <button class="toggle-btn" onclick="toggleContent('more2')">See Example</button>
+      <div class="toggle-content" id="more2">
+        <p>For example, if a bin is only 30% full, the system can delay collection to save fuel and labor. Conversely, if a bin is 90% full, it will prioritize emptying it to avoid overflow.</p>
+      </div>
+    </section>
+
+    <section style="text-align:center;">
+      <h2>Join the Movement</h2>
+      <p>Together, we can build smarter cities that are cleaner and more sustainable. Spread the word and support smart waste management initiatives.</p>
+      <a href="#contact" class="btn">Contact Us</a>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>If you want to learn more or get involved, drop us a message!</p>
+      <form onsubmit="handleSubmit(event)">
+        <label for="name">Name:</label><br />
+        <input type="text" id="name" name="name" required style="width:100%; padding: 0.5rem; margin-bottom:1rem;" /><br />
+
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" name="email" required style="width:100%; padding: 0.5rem; margin-bottom:1rem;" /><br />
+
+        <label for="message">Message:</label><br />
+        <textarea id="message" name="message" rows="4" required style="width:100%; padding: 0.5rem; margin-bottom:1rem;"></textarea><br />
+
+        <button type="submit" class="btn">Send</button>
+      </form>
+      <p id="form-response" style="color: green; font-weight: bold; margin-top:1rem;"></p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Smart Waste Management Awareness. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleContent(id) {
+      const el = document.getElementById(id);
+      if (el.style.display === "block") {
+        el.style.display = "none";
+      } else {
+        el.style.display = "block";
+      }
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      // Simple fake submission handler (since no backend)
+      const name = event.target.name.value.trim();
+      const email = event.target.email.value.trim();
+      const message = event.target.message.value.trim();
+
+      if (name && email && message) {
+        document.getElementById('form-response').textContent = "Thank you, " + name + "! Your message has been received.";
+        event.target.reset();
+      } else {
+        document.getElementById('form-response').textContent = "";
+      }
+    }
+  </script>
+</body>
+</html>
