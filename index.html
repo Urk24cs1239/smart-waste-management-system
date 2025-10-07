@@ -139,19 +139,26 @@
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
-      <p>If you want to learn more or get involved, drop us a message!</p>
+      <h2>Submit a Wastage Report</h2>
+      <p>If you notice any waste issues or want to report overflowing bins, please fill out the form below.</p>
       <form onsubmit="handleSubmit(event)">
-        <label for="name">Name:</label><br />
-        <input type="text" id="name" name="name" required style="width:100%; padding: 0.5rem; margin-bottom:1rem;" /><br />
+        <label for="location">Location of Waste Issue:</label><br />
+        <input type="text" id="location" name="location" required style="width:100%; padding: 0.5rem; margin-bottom:1rem;" /><br />
 
-        <label for="email">Email:</label><br />
-        <input type="email" id="email" name="email" required style="width:100%; padding: 0.5rem; margin-bottom:1rem;" /><br />
+        <label for="issueType">Type of Issue:</label><br />
+        <select id="issueType" name="issueType" required style="width:100%; padding: 0.5rem; margin-bottom:1rem;">
+          <option value="">--Please choose an option--</option>
+          <option value="Overflowing Bin">Overflowing Bin</option>
+          <option value="Missed Collection">Missed Collection</option>
+          <option value="Damaged Bin">Damaged Bin</option>
+          <option value="Illegal Dumping">Illegal Dumping</option>
+          <option value="Other">Other</option>
+        </select><br />
 
-        <label for="message">Message:</label><br />
-        <textarea id="message" name="message" rows="4" required style="width:100%; padding: 0.5rem; margin-bottom:1rem;"></textarea><br />
+        <label for="details">Additional Details:</label><br />
+        <textarea id="details" name="details" rows="4" required style="width:100%; padding: 0.5rem; margin-bottom:1rem;"></textarea><br />
 
-        <button type="submit" class="btn">Send</button>
+        <button type="submit" class="btn">Submit Report</button>
       </form>
       <p id="form-response" style="color: green; font-weight: bold; margin-top:1rem;"></p>
     </section>
@@ -173,13 +180,13 @@
 
     function handleSubmit(event) {
       event.preventDefault();
-      // Simple fake submission handler (since no backend)
-      const name = event.target.name.value.trim();
-      const email = event.target.email.value.trim();
-      const message = event.target.message.value.trim();
+      const location = event.target.location.value.trim();
+      const issueType = event.target.issueType.value.trim();
+      const details = event.target.details.value.trim();
 
-      if (name && email && message) {
-        document.getElementById('form-response').textContent = "Thank you, " + name + "! Your message has been received.";
+      if (location && issueType && details) {
+        document.getElementById('form-response').textContent =
+          `Thank you! Your wastage report for "${issueType}" at "${location}" has been received.`;
         event.target.reset();
       } else {
         document.getElementById('form-response').textContent = "";
